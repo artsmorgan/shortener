@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Url{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Your new URL is ready</h1>
+
+    <p>New URL: <strong><a href="http://{{urlRedirect}}">{{ baseUrl }}/{{urlId}}</a></strong></p>
+    <br>
+    <a href="/url">View Stats</a>
+{% endblock %}

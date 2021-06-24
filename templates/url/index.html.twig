@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Url index{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h1>Url index</h1>
+    {{ include('url/_form.html.twig') }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Short Code</th>
+                <th>Url</th>
+                <th>Hits</th>
+                <th>Date Added</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for url in urls %}
+            <tr>
+                <td>{{ url.id }}</td>
+                <td><a href="{{baseUrl}}/{{ url.ShortCode }}">{{baseUrl}}/{{ url.ShortCode }}<a/></td>
+                <td>{{ url.url }}</td>
+                <td>{{ url.hits  | default("0")}}</td>
+                <td>{{ url.addedDate |date('d-m-Y h:m')  }}</td>
+                {# <td>{{ url.stop }}</td> #}
+                {# <td>
+                    <a href="{{ path('url_show', {'id': url.id}) }}">show</a>
+                    <a href="{{ path('url_edit', {'id': url.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Url index{% endblock %}
+
+
+{% block body %}
+
+{% if hasRedirect %}
+    <script>
+        var redirect='{{ redirectUrl }}'
+        window.location.href = redirect;
+    </script>
+{% else %}
+   404 URL Not Found
+{% endif %}
+{% endblock %}

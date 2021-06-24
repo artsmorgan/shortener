@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Url{% endblock %}
+
+{% block body %}
+    <h1>Url</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ url.id }}</td>
+            </tr>
+            <tr>
+                <th>Url_id</th>
+                <td>{{ url.urlId }}</td>
+            </tr>
+            <tr>
+                <th>Url_name</th>
+                <td>{{ url.urlName }}</td>
+            </tr>
+            <tr>
+                <th>Vanity_url</th>
+                <td>{{ url.vanityUrl }}</td>
+            </tr>
+            <tr>
+                <th>Stop</th>
+                <td>{{ url.stop }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('url_index') }}">back to list</a>
+
+    <a href="{{ path('url_edit', {'id': url.id}) }}">edit</a>
+
+    {{ include('url/_delete_form.html.twig') }}
+{% endblock %}
